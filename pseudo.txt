@@ -1,0 +1,6 @@
+PSEUDO STEPS
+
+1. NPM install required packages
+2. Create js files for each class
+3. Create CLI file which collects the inputs
+4. 
