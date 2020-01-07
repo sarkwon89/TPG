@@ -2,5 +2,8 @@ PSEUDO STEPS
 
 1. NPM install required packages
 2. Create js files for each class
-3. Create CLI file which collects the inputs
-4. 
+3. Create CLI file called app.js which collects the inputs using inquirer
+4. Create class constructors for each class
+5. create a method that will generate html template with specific properties
+6. retrieve data from input or create a method that will take all the inputs and deliver html
+7. 
