@@ -55,9 +55,12 @@ pseudo.txt // written my pseudo code
 hw details/           // personal reference to hw requirements
 ```
 
-# visual example
+# visual example of functionality
 
+TPG Application
 ![demo](/gif/TPG.gif)
+
+TPG tests
 ![demo](/gif/TPGtestunit.gif)
 
 
