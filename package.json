@@ -4,7 +4,8 @@
   "description": "Team Profile Generator",
   "main": "app.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
     "test": "jest"
@@ -20,7 +21,6 @@
   },
   "homepage": "https://github.com/sarkwon89/TPG#readme",
   "dependencies": {
-    "inquirer": "^7.0.2",
-    "jest": "^24.9.0"
+    "inquirer": "^7.0.3"
   }
 }

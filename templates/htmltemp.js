@@ -1,20 +1,6 @@
 function generateMain() {
 
-    let test = ` <div class="card">
-    <div class="card-header">
-        <h2>name</h2>
-        <h2>title</h2>
-    </div>
-    <div class="card-body">
-        <ul>
-            <li>ID</li>
-            <li>EMAIL</li>
-            <li>TBD</li>
-        </ul>
-    </div>
-</div>`;
-
-    let mainHTML = `<!DOCTYPE html>
+     `<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -28,11 +14,11 @@ function generateMain() {
         <div class=header>
             <h1>My Team</h1>
         </div>
-        <div class="body">
-        
-        ` + test + `
-          
-        </div>
+        <div class="body">`
+
+    $ {}
+
+    `</div>
     </body>
     
     </html>`
@@ -44,7 +30,7 @@ generateMain()
 function generateEngineer() {
     `<div class="card">
 <div class="card-header">
-    <h2>${name}</h2>
+    <h2>${name}</h2>  
     <h2>${title}</h2>
 </div>
 <div class="card-body">
@@ -58,7 +44,7 @@ function generateEngineer() {
 }
 
 function generateIntern() {
-    `<div class="card">
+    return (`<div class="card">
     <div class="card-header">
         <h2>${name}</h2>
         <h2>${title}</h2>
@@ -67,24 +53,25 @@ function generateIntern() {
         <ul>
             <li>${id}</li>
             <li>${email}</li>
-            <li>${github}</li>
+            <li>${school}</li>
+        </ul>
+    </div>
+    </div>`)
+}
+
+function generateManager() {
+    return `<div class="card">
+    <div class="card-header">
+        <h2>${obj.name}</h2>
+        <h2>${title}</h2>
+    </div>
+    <div class="card-body">
+        <ul>
+            <li>${id}</li>
+            <li>${email}</li>
+            <li>${offceNumber}</li>
         </ul>
     </div>
     </div>`
 }
 
-function generateManager() {
-    `<div class="card">
-    <div class="card-header">
-        <h2>${name}</h2>
-        <h2>${title}</h2>
-    </div>
-    <div class="card-body">
-        <ul>
-            <li>${id}</li>
-            <li>${email}</li>
-            <li>${github}</li>
-        </ul>
-    </div>
-    </div>`
-}
