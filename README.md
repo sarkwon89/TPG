@@ -23,10 +23,41 @@ If you select "engineer" you will need to fill out
 * email
 * github
 
-## What is is using?
+## What is this application using?
 NPM module jest
 NPM module inquirer
 javascript
+node.js
+google font
+font awesome
+
+## Directory set up
+
+```
+lib/           // classes and helper code
+    Employee.js
+    Engineer.js
+    Intern.js
+    Manager.js
+output/        // rendered output
+    //html will show up here once the user is done creating team profile
+templates/     // HTML template(s) = not using at the moment
+test/          // jest tests
+  Employee.test.js
+  Engineer.test.js
+  Intern.test.js
+  Manager.test.js
+app.js         // Runs the application
+.gitignore
+package-lock.json
+package.json
+pseudo.txt // written my pseudo code
+hw details/           // personal reference to hw requirements
+```
+
+#visual example
+
+
 
 
 
