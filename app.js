@@ -4,19 +4,37 @@ const util = require("util");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+// const html = require("./templates/htmltemp");
+
 
 const writeFileAsync = util.promisify(fs.writeFile);
 const appendFileAsync = util.promisify(fs.appendFile);
 
 let teamArray = [];
-let teamstr;
+let teamstr="";
 
-//this calls all the functions in one 
+//this calls all the functions in one in order
 async function main() {
-     prompt()
+     try {
+          await prompt()
+          // for i to teamArray.length  => 
 
-     // create other prompt asking for what you want
-     // based on create prompt eng , inter, and evrything yo create the object and push into the array
+          for (let i = 0; i < teamArray.length; i++) {
+               //template literal=``
+               teamstr = teamstr + generateCard(teamArray[i]);
+          }
+
+          // console.log(teamstr)
+
+          //call generate function to generate the html template literal
+          generateHTML(teamstr)
+
+
+     }
+      catch (err) {
+          return console.log(err);
+     }
+
 };
 
 async function prompt() {
@@ -63,7 +81,7 @@ async function prompt() {
                          message: "What is the employee's github username?:",
                     }, ]);
                     //store the object and push
-                    const engineer = new Engineer (response.name, response.id, response.email, response2.x);
+                    const engineer = new Engineer(response.name, response.id, response.email, response2.x);
                     teamArray.push(engineer);
                } else if (response.role === "Intern") {
                     response2 = await inquirer.prompt([{
@@ -72,7 +90,7 @@ async function prompt() {
                          message: "What school is the employee attending?:",
                     }, ]);
                     //store the object and push
-                    const intern = new Intern (response.name, response.id, response.email, response2.x);
+                    const intern = new Intern(response.name, response.id, response.email, response2.x);
                     teamArray.push(intern);
                } else if (response.role === "Manager") {
                     response2 = await inquirer.prompt([{
@@ -81,47 +99,142 @@ async function prompt() {
                          message: "What is the employee's office number?:",
                     }, ]);
                     //store the object and push
-                    const manager = new Manager (response.name, response.id, response.email, response2.x);
+                    const manager = new Manager(response.name, response.id, response.email, response2.x);
                     teamArray.push(manager);
-               } 
-          }
-          catch (err) {
+               }
+          } catch (err) {
                return console.log(err);
           }
           console.log(teamArray)
           //need to prompt do you want to continue
 
-          responseDone = await inquirer.prompt([
-               {
-                    type: "list",
-                    name: "finish",
-                    message: "Do you want to continue?: ",
-                    choices: [
-                         "Yes",
-                         "No"
-                    ]
-               },
-          ]);
+          responseDone = await inquirer.prompt([{
+               type: "list",
+               name: "finish",
+               message: "Do you want to continue?: ",
+               choices: [
+                    "Yes",
+                    "No"
+               ]
+          }, ]);
 
           // console.log(responseDone.choices);
-     //the while parameter is saying continue running the code if the user selects "yes"
-     }while(responseDone.finish==="Yes");
+          //the while parameter is saying continue running the code if the user selects "yes"
+     } while (responseDone.finish === "Yes");
 }
+
+
+function generateHTML(teamstr) {
+     const html = `<!DOCTYPE html>
+     <html lang="en">
+     
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+         <title>TPG</title>
+         <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+         <style>
+         body{
+          font-family: 'Vast Shadow', cursive;
+         }
+         .header{
+             border: solid black;
+             text-align: center;
+             font-size: xx-large;
+         }
+         .container-body{
+             display: flex;
+             justify-content: space-evenly;
+ 
+         }
+         .card{
+             border: solid black;
+             font-size: x-large;
+         }
+     </style>
+     </head>
+     
+     <body>
+    <div class=header>
+        <h1>My Team</h1>
+    </div>
+    <div class="container-body">
+
+          ${teamstr} 
+
+          </div>
+     </body>
+     
+     </html>`
+
+     writeFileAsync("./output/index.html", html)
+}
+
+
+function generateCard(arr) {
+     return `<div class="card">
+ <div class="card-header">
+     <h2>Name: ${arr.name}</h2>  
+     <h2>Role: ${arr.title}</h2>
+ </div>
+ <div class="card-body">
+     <ul>
+         <li>ID: ${arr.id}</li>
+         <li>Email: ${arr.email}</li>
+         <li>School: ${arr.school} </li>
+         <li>Github: ${arr.github} </li>
+         <li>Office Number: ${arr.officeNum} </li>
+     </ul>
+ </div>
+ </div>`
+}
+
 
 
 main();
 
-function buildHTML() {
-     // loop the array  employee.getRole() === "Manager") {
-     let res = buildManager(name, id, )
-     html += res
 
-     // at the end of the loop
-     // hmtl = html + mainHTHMLFoot
-     // write file 
-}
+// module.exports = teamstr
+//This is what teamstr = teamstr + generateCard(teamArray[i]) is doing
+// `<div class="card">
+//  <div class="card-header">
+//      <h2>${arr.name}</h2>  
+//      <h2>${arr.title}</h2>
+//  </div>
+//  <div class="card-body">
+//      <ul>
+//          <li>${arr.id}</li>
+//          <li>${arr.email}</li>
+//          <li>${arr.x}</li>
+//      </ul>
+//  </div>
+//  </div>`
 
-// html ="abc"
-// html += "next"
-// hmtl+= "foot"
-// "abcnextfoot"
+//  `<div class="card">
+//  <div class="card-header">
+//      <h2>${arr.name}</h2>  
+//      <h2>${arr.title}</h2>
+//  </div>
+//  <div class="card-body">
+//      <ul>
+//          <li>${arr.id}</li>
+//          <li>${arr.email}</li>
+//          <li>${arr.x}</li>
+//      </ul>
+//  </div>
+//  </div>`
+
+//  `<div class="card">
+//  <div class="card-header">
+//      <h2>${arr.name}</h2>  
+//      <h2>${arr.title}</h2>
+//  </div>
+//  <div class="card-body">
+//      <ul>
+//          <li>${arr.id}</li>
+//          <li>${arr.email}</li>
+//          <li>${arr.x}</li>
+//      </ul>
+//  </div>
+//  </div>`

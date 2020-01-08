@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sarkwon89/TPG#readme",
   "dependencies": {
-    "inquirer": "^7.0.3"
+    "inquirer": "^7.0.3",
+    "jest": "^24.9.0"
   }
 }

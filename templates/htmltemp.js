@@ -1,6 +1,11 @@
-function generateMain() {
 
-     `<!DOCTYPE html>
+const app = require("/Users/sarkw/TPG/app")
+
+console.log(app.teamstr)
+
+
+function generateHTML(teamstr) {
+    return `<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -16,62 +21,13 @@ function generateMain() {
         </div>
         <div class="body">`
 
-    $ {}
+         + teamstr + 
 
-    `</div>
+        `</div>
     </body>
     
     </html>`
-    console.log(mainHTML)
 }
 
-generateMain()
 
-function generateEngineer() {
-    `<div class="card">
-<div class="card-header">
-    <h2>${name}</h2>  
-    <h2>${title}</h2>
-</div>
-<div class="card-body">
-    <ul>
-        <li>${id}</li>
-        <li>${email}</li>
-        <li>${github}</li>
-    </ul>
-</div>
-</div>`
-}
-
-function generateIntern() {
-    return (`<div class="card">
-    <div class="card-header">
-        <h2>${name}</h2>
-        <h2>${title}</h2>
-    </div>
-    <div class="card-body">
-        <ul>
-            <li>${id}</li>
-            <li>${email}</li>
-            <li>${school}</li>
-        </ul>
-    </div>
-    </div>`)
-}
-
-function generateManager() {
-    return `<div class="card">
-    <div class="card-header">
-        <h2>${obj.name}</h2>
-        <h2>${title}</h2>
-    </div>
-    <div class="card-body">
-        <ul>
-            <li>${id}</li>
-            <li>${email}</li>
-            <li>${offceNumber}</li>
-        </ul>
-    </div>
-    </div>`
-}
-
+module.exports = generateHTML
