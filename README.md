@@ -57,8 +57,8 @@ hw details/           // personal reference to hw requirements
 
 # visual example
 
-![demo](TPG.gif)
-![demo](TPGtestunit.gif)
+![demo](/gif/TPG.gif)
+![demo](/gif/TPGtestunit.gif)
 
 
 
