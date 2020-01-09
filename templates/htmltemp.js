@@ -64,8 +64,19 @@
 
     }
 
-
+    //arr is the employee object and looking for the properties in that class
     const generateCard = function (arr) {
+        //if else statement
+        let roleInfo;
+
+        if (arr.title === "Manager") {
+            roleInfo = `Office Number: ${arr.officeNumber}`
+        } else if (arr.title === "Engineer") {
+            roleInfo = `Github Username: ${arr.github}`
+        } else if (arr.title === "Intern") {
+            roleInfo = `School: ${arr.school}`
+        }
+
         return `<div class="card">
 <div class="card-header">
     <h2>${arr.name}</h2>  
@@ -76,14 +87,11 @@
     <ul>
         <li>ID: ${arr.id}</li>
         <li>Email: ${arr.email}</li>
-        <li>Office Number: ${arr.officeNum} </li>
-        <li>Github: ${arr.github} </li>
-        <li>School: ${arr.school} </li>
+        <li>${roleInfo} </li>
     </ul>
 </div>
 </div>`
     }
-
 
     exports.generateHTML = generateHTML
     exports.generateCard = generateCard;

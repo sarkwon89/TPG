@@ -90,6 +90,8 @@ async function prompt() {
                } else if (response.role === "Intern") {
                     response2 = await inquirer.prompt([{
                          type: "input",
+
+                         //the x is to only store into the team array
                          name: "x",
                          message: "What school is the employee attending?:",
                     }, ]);
