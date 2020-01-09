@@ -41,7 +41,7 @@ lib/           // classes and helper code
     Manager.js
 output/        // rendered output
     //html will show up here once the user is done creating team profile
-templates/     // HTML template(s) = not using at the moment
+templates/     // HTML template(s) 
 test/          // jest tests
   Employee.test.js
   Engineer.test.js
