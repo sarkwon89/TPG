@@ -76,7 +76,7 @@ async function prompt() {
                ]);
 
                let response2 = ""
-               // switch statement
+               // if else statement
 
                if (response.role === "Engineer") {
                     response2 = await inquirer.prompt([{
